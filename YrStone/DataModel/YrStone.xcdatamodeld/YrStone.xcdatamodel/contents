@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21277" systemVersion="22A5321d" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="YrIdentityEntity" representedClassName="YrIdentityEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YrRecordEntity" inverseName="identity" inverseEntity="YrRecordEntity"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="YrOrganizationDomainEntity" representedClassName="YrOrganizationDomainEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="value" attributeType="String"/>
+        <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="YrOrganizationEntity" inverseName="domains" inverseEntity="YrOrganizationEntity"/>
+    </entity>
+    <entity name="YrOrganizationEntity" representedClassName="YrOrganizationEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="domains" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YrOrganizationDomainEntity" inverseName="organization" inverseEntity="YrOrganizationDomainEntity"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="YrRecordEntity" inverseName="organization" inverseEntity="YrRecordEntity"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="YrRecordEntity" representedClassName="YrRecordEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="password" attributeType="String"/>
+        <attribute name="username" attributeType="String"/>
+        <relationship name="fields" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="YrRecordFieldEntity" inverseName="record" inverseEntity="YrRecordFieldEntity"/>
+        <relationship name="identity" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="YrIdentityEntity" inverseName="records" inverseEntity="YrIdentityEntity"/>
+        <relationship name="organization" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="YrOrganizationEntity" inverseName="records" inverseEntity="YrOrganizationEntity"/>
+        <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YrRecordTagEntity" inverseName="records" inverseEntity="YrRecordTagEntity"/>
+    </entity>
+    <entity name="YrRecordFieldEntity" representedClassName="YrRecordFieldEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="content" attributeType="String"/>
+        <attribute name="desc" attributeType="String"/>
+        <relationship name="record" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="YrRecordEntity" inverseName="fields" inverseEntity="YrRecordEntity"/>
+    </entity>
+    <entity name="YrRecordTagEntity" representedClassName="YrRecordTagEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String"/>
+        <relationship name="records" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="YrRecordEntity" inverseName="tags" inverseEntity="YrRecordEntity"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="name"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+</model>

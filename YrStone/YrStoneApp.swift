@@ -11,7 +11,8 @@ import SwiftUI
 struct YrStoneApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppView()
+                .environmentObject(RecordCollectionViewModel.NewInstance())
         }
     }
 }
