@@ -11,21 +11,31 @@ struct IdentityListView: View {
     var onTap: ()->Void = {}
     @EnvironmentObject var recordCollectionViewModel: RecordCollectionViewModel
     
+    var activeColor: Color = Color.AppPrimary5.opacity(0.6)
+    
     var body: some View {
         ScrollView {
             LazyVStack {
                 ForEach(0..<10) {idx in
                     let showData: Bool = idx < recordCollectionViewModel.identities.count
-                    RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.AppBackgroundLight)
+                    let shape = RoundedRectangle(cornerRadius: 20)
+                    
+                    ZStack {
+                        if (showData) {
+                            activeColor
+                        } else {
+                            Color.AppSecondaryLight.opacity(0.1)
+                        }
+                    }
                         .frame(height:80)
-                        .opacity(showData ? 0.7 : 0.2)
+                        .clipShape(shape)
                         .overlay(
-                            showData ? Text( recordCollectionViewModel.identities[idx].name!)
+                            Text( showData ? recordCollectionViewModel.identities[idx].name! : "" )
                                 .font(.title2)
-                                .foregroundColor(Color.AppTextDark) : Text("")
+                                .foregroundColor(Color.AppTextLight.opacity(0.75))
                         )
-                        .padding(5)
+                        .shadow(color: activeColor, radius: showData ? 5 : 0)
+                        .padding(7)
                         .onTapGesture {
                             guard(showData) else {return}
                             recordCollectionViewModel.focusedIdentity = recordCollectionViewModel.identities[idx]

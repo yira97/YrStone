@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CreateRecordView: View {
     @EnvironmentObject var recordCollectionViewModel: RecordCollectionViewModel
+    @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) private var dismiss
     @State private var inputUsername = ""
     @State private var inputPassword = ""
@@ -22,7 +23,7 @@ struct CreateRecordView: View {
             Text("Create Record")
                 .font(.title)
                 .bold()
-                .foregroundColor(.AppPrimary5)
+                .foregroundColor(.AppText(colorScheme))
                 .padding()
             ScrollView {
                 VStack (alignment: .center) {
@@ -59,7 +60,7 @@ struct CreateRecordView: View {
                     }
                     .background(
                         RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color.AppBackgroundLight)
+                            .foregroundColor(Color.AppSecondaryLight)
                     )
                     HStack {
                         Spacer()
@@ -86,7 +87,7 @@ struct CreateRecordView: View {
                         }
                         .font(.title3)
                         .bold()
-                        .foregroundColor(.AppPrimary5)
+                        .foregroundColor(.AppText(colorScheme))
                         Text(recordCollectionViewModel.focusedIdentity?.name ?? "")
                             .frame(width:120)
                             .font(.title3)
@@ -97,7 +98,7 @@ struct CreateRecordView: View {
                             .padding()
                             .background(
                                 RoundedRectangle(cornerRadius: 50, style: .continuous)
-                                    .foregroundColor(.AppBackgroundLight)
+                                    .foregroundColor(.AppSecondaryLight)
                             )
                             .overlay(
                                 ReselectButton(action: {
@@ -112,7 +113,7 @@ struct CreateRecordView: View {
                         }
                         .font(.title3)
                         .bold()
-                        .foregroundColor(.AppPrimary5)
+                        .foregroundColor(.AppText(colorScheme))
                         .padding(.top)
                         ZStack(alignment:.trailing) {
                             Text(recordCollectionViewModel.focusedOrganization?.name ?? "")
@@ -125,7 +126,7 @@ struct CreateRecordView: View {
                                 .padding()
                                 .background(
                                     RoundedRectangle(cornerRadius: 50, style: .continuous)
-                                        .foregroundColor(.AppBackgroundLight)
+                                        .foregroundColor(.AppSecondaryLight)
                                 )
                             ReselectButton(action: {
                                 showOrganizationSelection = true
@@ -165,9 +166,12 @@ struct CreateRecordView: View {
                             recordCollectionViewModel.focusedIdentity = nil
                             showIdentitySelection = false
                         }
-                    IdentityListView(onTap: {
-                        showIdentitySelection = false
-                    })
+                    IdentityListView(
+                        onTap: {
+                            showIdentitySelection = false
+                        },
+                        activeColor: Color.AppPrimary2
+                    )
                 }
                 .padding()
                 .background(Color.AppPrimary5)
@@ -187,15 +191,21 @@ struct CreateRecordView: View {
                             recordCollectionViewModel.focusedOrganization = nil
                             showOrganizationSelection = false
                         }
-                    OrganizationGridView(onTap: {
-                        showOrganizationSelection = false
-                    })
+                    OrganizationGridView(
+                        onTap: {
+                            showOrganizationSelection = false
+                        },
+                        activeColor: Color.AppPrimary2
+                    )
                 }
                 .padding()
                 .background(Color.AppPrimary5)
                 .presentationDetents([.medium])
             }
         }
+        .background(
+            Color.AppBackground(colorScheme)
+        )
     }
 }
 

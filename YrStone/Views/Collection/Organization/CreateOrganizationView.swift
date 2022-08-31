@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateOrganizationView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var inputOrganizationName: String = ""
     @State var inputOrganizationDomains: [String] = [""]
     @Environment(\.dismiss) private var dismiss
@@ -19,7 +20,7 @@ struct CreateOrganizationView: View {
                 Text("Create Organization")
                     .font(.title)
                     .bold()
-                    .foregroundColor(.AppPrimary5)
+                    .foregroundColor(Color.AppText(colorScheme))
                     .padding(.bottom)
                     .padding()
                 RoundedIconTextField(value: $inputOrganizationName, icon: Image(systemName: "person.fill"), label: "Name")
@@ -27,7 +28,7 @@ struct CreateOrganizationView: View {
                 Text("Domains")
                     .font(.title2)
                     .bold()
-                    .foregroundColor(.AppPrimary5)
+                    .foregroundColor(Color.AppText(colorScheme))
                     .padding()
                 VStack {
                     VStack {
@@ -38,7 +39,7 @@ struct CreateOrganizationView: View {
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 30)
-                            .foregroundColor(Color.AppBackgroundLight)
+                            .foregroundColor(Color.AppSecondaryLight)
                     )
                     HStack {
                         Spacer()
@@ -67,6 +68,7 @@ struct CreateOrganizationView: View {
             }
             .padding()
         }
+        .background(Color.AppBackground(colorScheme))
     }
 }
     

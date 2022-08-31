@@ -50,7 +50,7 @@ struct OrganizationDetailView: View {
                         }
                         .background(
                             RoundedRectangle(cornerRadius: 30)
-                                .foregroundColor(Color.AppBackgroundLight)
+                                .foregroundColor(Color.AppSecondaryLight)
                         )
                     }
                     HStack {

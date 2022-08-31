@@ -13,5 +13,18 @@ extension Color {
     static let AppPrimary2 = Color("AppPrimary0.2")
     static let AppTextLight = Color("AppTextLight")
     static let AppTextDark = Color("AppTextDark")
-    static let AppBackgroundLight = Color("AppBackgroundLight")
+    static let AppSecondaryLight = Color("AppBackgroundLight")
+    
+    static func AppSecondary(_ colorSchene: ColorScheme) -> Color {
+        colorSchene == .dark ? AppSecondaryLight.opacity(0.4) : AppSecondaryLight
+    }
+    
+    static func AppText(_ colorSchene: ColorScheme) -> Color {
+        colorSchene == .dark ? AppTextLight : AppTextDark
+    }
+    
+    static func AppBackground(_ colorSchene: ColorScheme) -> Color {
+        colorSchene == .dark ? Color.AppPrimary5.opacity(0.7) :
+         Color.AppPrimary5.opacity(0.1)
+    }
 }

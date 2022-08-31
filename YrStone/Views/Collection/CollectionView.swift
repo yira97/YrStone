@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CollectionView: View {
-    
+    @Environment(\.colorScheme) var colorScheme
     @State private var showCreateRecordView = false
     var body: some View {
         NavigationStack {
@@ -17,6 +17,7 @@ struct CollectionView: View {
                     Text("Categories")
                         .font(.title2)
                         .bold()
+                        .foregroundColor(Color.AppText(colorScheme))
                     ScrollView(.horizontal) {
                         HStack(spacing: 20) {
                             NavigationLink(destination: IdentityView()) {
@@ -34,6 +35,7 @@ struct CollectionView: View {
                     Text("Activities")
                         .font(.title2)
                         .bold()
+                        .foregroundColor(Color.AppText(colorScheme))
                     RecentRecordList()
                         .shadow(color: Color.AppPrimary5.opacity(0.2), radius: 10, x:0, y:5)
                         .padding([.horizontal,.bottom])
@@ -42,7 +44,7 @@ struct CollectionView: View {
             .padding()
             .frame(maxWidth: .infinity)
             .navigationBarTitleDisplayMode(.inline)
-            .background(Color.AppPrimary5.opacity(0.1))
+            .background(colorScheme == .dark ? Color.AppPrimary5.opacity(0.7) : Color.AppPrimary5.opacity(0.1))
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     Button(action: {

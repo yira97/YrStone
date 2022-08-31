@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CreateIdentityView: View {
+    @Environment(\.colorScheme) var colorScheme
     @State var inputIdentityName: String = ""
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject var recordCollectionViewModel: RecordCollectionViewModel
@@ -18,7 +19,7 @@ struct CreateIdentityView: View {
                 Text("Create Identity")
                     .font(.title)
                     .bold()
-                    .foregroundColor(.AppPrimary5)
+                    .foregroundColor(Color.AppText(colorScheme))
                     .padding(.bottom)
                     .padding()
                 RoundedIconTextField(value: $inputIdentityName, icon: Image(systemName: "person.fill"), label: "Name")
@@ -36,6 +37,7 @@ struct CreateIdentityView: View {
             }
             .padding()
         }
+        .background(Color.AppBackground(colorScheme))
     }
 }
 

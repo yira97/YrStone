@@ -86,7 +86,7 @@ struct RecordDetailView: View {
                 }
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.AppBackgroundLight)
+                        .foregroundColor(.AppSecondaryLight)
                 )
             }
             HStack {

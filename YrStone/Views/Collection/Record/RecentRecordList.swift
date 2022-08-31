@@ -49,7 +49,7 @@ struct RecentRecordList: View {
             }
         }
         .padding(.horizontal)
-        .background(Color.AppBackgroundLight)
+        .background(Color.AppSecondaryLight)
         .clipShape(RoundedRectangle(cornerRadius: 20,style: .continuous))
     }
 }

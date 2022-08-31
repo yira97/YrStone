@@ -15,6 +15,7 @@ struct RoundedIconTextField: View {
     var width: CGFloat = .infinity
     var height: CGFloat = 60
     var color: Color = Color.AppPrimary5
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         GeometryReader { gr in
@@ -40,7 +41,7 @@ struct RoundedIconTextField: View {
             })
             .background(
                 RoundedRectangle(cornerRadius:50)
-                    .foregroundColor(.AppBackgroundLight)
+                    .foregroundColor(.AppSecondary(colorScheme))
                     .frame(width: gr.size.width, height: gr.size.height)
             )
         }

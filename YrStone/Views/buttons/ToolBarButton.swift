@@ -10,7 +10,7 @@ import SwiftUI
 struct ToolBarButton: ButtonStyle {
     var revColor: Bool = false
     var iconColor = Color.AppPrimary5
-    var backgroundColor = Color.AppBackgroundLight
+    var backgroundColor = Color.AppSecondaryLight
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
