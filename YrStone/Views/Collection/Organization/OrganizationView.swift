@@ -21,9 +21,13 @@ struct OrganizationView: View {
     }
     
     var body: some View {
-        OrganizationGridView(onTap: {
-            showDetail = true
-        })
+        OrganizationGroupView(
+            onTap: {
+                showDetail = true
+            },
+            displayMode: .List,
+            shape: RoundedRectangle(cornerRadius: 20)
+        )
         .padding(.horizontal)
         // TODO: deleting the padding will cause the navigationBarTitleDisplayMode change when scrolling which is unexpected.
         .padding(.vertical, 1)

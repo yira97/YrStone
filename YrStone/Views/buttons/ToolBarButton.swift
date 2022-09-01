@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct ToolBarButton: ButtonStyle {
-    var revColor: Bool = false
-    var iconColor = Color.AppPrimary5
-    var backgroundColor = Color.AppSecondaryLight
+    var rotate: Bool = false
+    var frontColor = Color.AppTextInv
+    var backColor = Color.AppCardBackgroundInv
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundColor(revColor ? backgroundColor : iconColor)
-            .padding(10)
+            .foregroundColor(!rotate ? frontColor : backColor)
+            .padding(8)
             .background(
-                RoundedRectangle(cornerRadius: 13,style: .continuous)
-                    .foregroundColor(revColor ? iconColor : backgroundColor)
+                RoundedRectangle(cornerRadius: 10,style: .continuous)
+                    .foregroundColor(!rotate ? backColor : frontColor)
             )
     }
 }

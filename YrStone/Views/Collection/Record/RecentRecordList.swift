@@ -10,26 +10,28 @@ import SwiftUI
 struct RecentRecordList: View {
     @EnvironmentObject var recordCollectionViewModel: RecordCollectionViewModel
     var maxNumber = 5
+    var frontColor = Color.AppPrimary5
     
     var body: some View {
         let count = min(recordCollectionViewModel.records.count, maxNumber)
         
         VStack {
-            HStack {
+            HStack(alignment: .center) {
                 Text("Recent Records")
                     .bold()
-                    .foregroundColor(Color.AppTextDark)
+                    .foregroundColor(frontColor)
                 Spacer()
-                
-                
                 NavigationLink {
                     RecordListView()
                 } label: {
                     HStack(spacing: 4) {
                         Text("See All")
                         Image(systemName: "chevron.right")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width:13, height:13)
                     }
-                    .foregroundColor(Color.AppPrimary2)
+                    .foregroundColor(Color.AppPrimary3)
                 }
             }
             .padding(.top)
@@ -49,14 +51,20 @@ struct RecentRecordList: View {
             }
         }
         .padding(.horizontal)
-        .background(Color.AppSecondaryLight)
+        .background(Color.AppCardBackground)
         .clipShape(RoundedRectangle(cornerRadius: 20,style: .continuous))
     }
 }
 
 struct RecentRecordList_Previews: PreviewProvider {
     static var previews: some View {
-        RecentRecordList()
-            .environmentObject(RecordCollectionViewModel.SharedForPreview)
+        Group {
+            RecentRecordList()
+                .environmentObject(RecordCollectionViewModel.SharedForPreview)
+            RecentRecordList()
+                .environmentObject(RecordCollectionViewModel.SharedForPreview)
+                .preferredColorScheme(.dark)
+            
+        }
     }
 }

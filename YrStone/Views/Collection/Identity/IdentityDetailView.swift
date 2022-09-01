@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IdentityDetailView: View {
     @EnvironmentObject var vm: RecordCollectionViewModel
+    @Environment(\.colorScheme) var colorScheme
     @State var inputName: String = ""
     @State var editMode = false
     
@@ -25,13 +26,14 @@ struct IdentityDetailView: View {
                     Text("Detail")
                         .font(.title)
                         .bold()
-                        .foregroundColor(Color.AppPrimary5)
+                        .foregroundColor(Color.AppText)
                         .padding()
                     Divider()
                     RoundedIconTextField(value: $inputName, icon: Image.IdentityIcon, label: "Name", editable: editMode, color: vm.focusedIdentity!.name == inputName ? .AppPrimary5 : .AppPrimary2)
                         .padding()
                     Spacer()
                 }
+                .padding()
                 Button(action: {
                     if (editMode) {
                         let originalInfo = IdentityInfo.fromYrIdentityEntity(entity: vm.focusedIdentity!)
@@ -45,7 +47,7 @@ struct IdentityDetailView: View {
                 }) {
                     Image(systemName: editMode ? "checkmark" : "pencil")
                 }
-                .buttonStyle(ToolBarButton(revColor: editMode))
+                .buttonStyle(ToolBarButton(rotate: editMode))
                 .padding()
             }
         }

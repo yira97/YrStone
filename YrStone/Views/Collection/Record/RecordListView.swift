@@ -11,24 +11,33 @@ import CoreData
 struct RecordListView: View {
     @EnvironmentObject var recordCollectionViewModel: RecordCollectionViewModel
     
+    
     var body: some View {
-        List {
-            ForEach(recordCollectionViewModel.records) { record in
-                NavigationLink(destination:
-                                RecordDetailView(record:RecordInfo.fromYrRecordEntity(entity: record))
-                               , label: {
-                    RecordRowView(record: RecordInfo.fromYrRecordEntity(entity: record))
-                })
-            }
-            .onDelete { idxs in
-                var ids = Set<NSManagedObjectID>()
-                for idx in idxs {
-                    ids.insert(recordCollectionViewModel.records[idx].objectID)
+        ZStack {
+            Color.AppCanvas
+                .ignoresSafeArea(edges: [.top
+                                        ])
+            if (recordCollectionViewModel.records.isNotEmpty) {
+                List {
+                    ForEach(recordCollectionViewModel.records) { record in
+                        NavigationLink(destination:
+                                        RecordDetailView(record:RecordInfo.fromYrRecordEntity(entity: record))
+                                       , label: {
+                            RecordRowView(record: RecordInfo.fromYrRecordEntity(entity: record))
+                        })
+                    }
+                    .onDelete { idxs in
+                        var ids = Set<NSManagedObjectID>()
+                        for idx in idxs {
+                            ids.insert(recordCollectionViewModel.records[idx].objectID)
+                        }
+                        recordCollectionViewModel.deleteRecords(ids: ids)
+                    }
                 }
-                recordCollectionViewModel.deleteRecords(ids: ids)
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
             }
         }
-        .listStyle(.plain)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("All Records")
     }

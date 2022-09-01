@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8D1DC89C28B87ADE005C887F /* OrganizationGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DC89B28B87ADE005C887F /* OrganizationGridView.swift */; };
+		8D1DC89C28B87ADE005C887F /* OrganizationGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DC89B28B87ADE005C887F /* OrganizationGroupView.swift */; };
 		8D2DA29D28AF2774004B5491 /* NSSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DA29C28AF2774004B5491 /* NSSet.swift */; };
 		8D34816828B37C2000E37132 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34816728B37C2000E37132 /* CollectionView.swift */; };
 		8D34816A28B37C4300E37132 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34816928B37C4300E37132 /* SettingsView.swift */; };
@@ -16,14 +16,13 @@
 		8D34817228B45A5A00E37132 /* RecentRecordList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34817128B45A5A00E37132 /* RecentRecordList.swift */; };
 		8D34817428B4A9CE00E37132 /* CreateRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34817328B4A9CE00E37132 /* CreateRecordView.swift */; };
 		8D34817628B4C10400E37132 /* NoRecordPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34817528B4C10400E37132 /* NoRecordPlaceholder.swift */; };
-		8D34817828B4E68200E37132 /* CategoryCardViewswift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34817728B4E68200E37132 /* CategoryCardViewswift.swift */; };
+		8D34817828B4E68200E37132 /* CategoryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34817728B4E68200E37132 /* CategoryCardView.swift */; };
 		8D599B7828B9F04D00BA0ED4 /* AutoColoredBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D599B7728B9F04D00BA0ED4 /* AutoColoredBadge.swift */; };
 		8D73170428AB38C500D9CFD5 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73170328AB38C500D9CFD5 /* Color.swift */; };
 		8D73D01128B8B17F00A4DBF7 /* RecordInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73D01028B8B17F00A4DBF7 /* RecordInfo.swift */; };
 		8D73D01328B8B1D100A4DBF7 /* OrganizationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73D01228B8B1D100A4DBF7 /* OrganizationInfo.swift */; };
 		8D73D01528B8B1E700A4DBF7 /* IdentityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73D01428B8B1E700A4DBF7 /* IdentityInfo.swift */; };
 		8D73D01728B8B72A00A4DBF7 /* gradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73D01628B8B72A00A4DBF7 /* gradients.swift */; };
-		8D73D01928B8B90B00A4DBF7 /* IdentityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73D01828B8B90B00A4DBF7 /* IdentityListView.swift */; };
 		8D73D01B28B8BA6700A4DBF7 /* ToolBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73D01A28B8BA6700A4DBF7 /* ToolBarButton.swift */; };
 		8D73D01D28B8BBEA00A4DBF7 /* OrganizationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73D01C28B8BBEA00A4DBF7 /* OrganizationDetailView.swift */; };
 		8D73D01F28B8BBF500A4DBF7 /* IdentityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D73D01E28B8BBF500A4DBF7 /* IdentityDetailView.swift */; };
@@ -32,13 +31,13 @@
 		8D870DA828BDBE0D00375B53 /* OrganizationDomainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D870DA728BDBE0D00375B53 /* OrganizationDomainInfo.swift */; };
 		8D870DAA28BDC40F00375B53 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D870DA928BDC40F00375B53 /* Array.swift */; };
 		8D870DC528BDF57F00375B53 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D870DC428BDF57F00375B53 /* extensions.swift */; };
-		8D8A9E3F28B77CD300E25FF4 /* ReselectButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A9E3E28B77CD300E25FF4 /* ReselectButton.swift */; };
-		8D8A9E4228B77EE400E25FF4 /* FindView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A9E4128B77EE400E25FF4 /* FindView.swift */; };
+		8D8A9E3F28B77CD300E25FF4 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A9E3E28B77CD300E25FF4 /* RoundButton.swift */; };
 		8D8A9E4828B78B3400E25FF4 /* OrganizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A9E4728B78B3400E25FF4 /* OrganizationView.swift */; };
 		8D8A9E4A28B78B5900E25FF4 /* IdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A9E4928B78B5900E25FF4 /* IdentityView.swift */; };
 		8D8A9E4F28B8527100E25FF4 /* CreateIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A9E4E28B8527100E25FF4 /* CreateIdentityView.swift */; };
 		8D8A9E5128B85F7000E25FF4 /* CreateOrganizationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A9E5028B85F7000E25FF4 /* CreateOrganizationView.swift */; };
 		8D8A9E5328B8628D00E25FF4 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D8A9E5228B8628D00E25FF4 /* PrimaryButton.swift */; };
+		8DB1A77228C08C5100694A18 /* IdentityGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB1A77128C08C5100694A18 /* IdentityGroupView.swift */; };
 		8DBDA6E0289CE1F800E5B464 /* YrStoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDA6DF289CE1F800E5B464 /* YrStoneApp.swift */; };
 		8DBDA6E2289CE1F800E5B464 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDA6E1289CE1F800E5B464 /* AppView.swift */; };
 		8DBDA6E4289CE1F900E5B464 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DBDA6E3289CE1F900E5B464 /* Assets.xcassets */; };
@@ -54,7 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8D1DC89B28B87ADE005C887F /* OrganizationGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationGridView.swift; sourceTree = "<group>"; };
+		8D1DC89B28B87ADE005C887F /* OrganizationGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationGroupView.swift; sourceTree = "<group>"; };
 		8D2DA29C28AF2774004B5491 /* NSSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSet.swift; sourceTree = "<group>"; };
 		8D34816728B37C2000E37132 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		8D34816928B37C4300E37132 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -63,14 +62,13 @@
 		8D34817128B45A5A00E37132 /* RecentRecordList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentRecordList.swift; sourceTree = "<group>"; };
 		8D34817328B4A9CE00E37132 /* CreateRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRecordView.swift; sourceTree = "<group>"; };
 		8D34817528B4C10400E37132 /* NoRecordPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoRecordPlaceholder.swift; sourceTree = "<group>"; };
-		8D34817728B4E68200E37132 /* CategoryCardViewswift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardViewswift.swift; sourceTree = "<group>"; };
+		8D34817728B4E68200E37132 /* CategoryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardView.swift; sourceTree = "<group>"; };
 		8D599B7728B9F04D00BA0ED4 /* AutoColoredBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoColoredBadge.swift; sourceTree = "<group>"; };
 		8D73170328AB38C500D9CFD5 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		8D73D01028B8B17F00A4DBF7 /* RecordInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordInfo.swift; sourceTree = "<group>"; };
 		8D73D01228B8B1D100A4DBF7 /* OrganizationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationInfo.swift; sourceTree = "<group>"; };
 		8D73D01428B8B1E700A4DBF7 /* IdentityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityInfo.swift; sourceTree = "<group>"; };
 		8D73D01628B8B72A00A4DBF7 /* gradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gradients.swift; sourceTree = "<group>"; };
-		8D73D01828B8B90B00A4DBF7 /* IdentityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityListView.swift; sourceTree = "<group>"; };
 		8D73D01A28B8BA6700A4DBF7 /* ToolBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBarButton.swift; sourceTree = "<group>"; };
 		8D73D01C28B8BBEA00A4DBF7 /* OrganizationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailView.swift; sourceTree = "<group>"; };
 		8D73D01E28B8BBF500A4DBF7 /* IdentityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityDetailView.swift; sourceTree = "<group>"; };
@@ -79,13 +77,13 @@
 		8D870DA728BDBE0D00375B53 /* OrganizationDomainInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDomainInfo.swift; sourceTree = "<group>"; };
 		8D870DA928BDC40F00375B53 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		8D870DC428BDF57F00375B53 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
-		8D8A9E3E28B77CD300E25FF4 /* ReselectButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReselectButton.swift; sourceTree = "<group>"; };
-		8D8A9E4128B77EE400E25FF4 /* FindView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindView.swift; sourceTree = "<group>"; };
+		8D8A9E3E28B77CD300E25FF4 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		8D8A9E4728B78B3400E25FF4 /* OrganizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationView.swift; sourceTree = "<group>"; };
 		8D8A9E4928B78B5900E25FF4 /* IdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityView.swift; sourceTree = "<group>"; };
 		8D8A9E4E28B8527100E25FF4 /* CreateIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIdentityView.swift; sourceTree = "<group>"; };
 		8D8A9E5028B85F7000E25FF4 /* CreateOrganizationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateOrganizationView.swift; sourceTree = "<group>"; };
 		8D8A9E5228B8628D00E25FF4 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
+		8DB1A77128C08C5100694A18 /* IdentityGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityGroupView.swift; sourceTree = "<group>"; };
 		8DBDA6DC289CE1F800E5B464 /* YrStone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YrStone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DBDA6DF289CE1F800E5B464 /* YrStoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YrStoneApp.swift; sourceTree = "<group>"; };
 		8DBDA6E1289CE1F800E5B464 /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -129,12 +127,10 @@
 		8D34816328B37ADB00E37132 /* Collection */ = {
 			isa = PBXGroup;
 			children = (
+				8D34816728B37C2000E37132 /* CollectionView.swift */,
 				8D13C73328BE1FC0000D271A /* Record */,
 				8D8A9E4428B7847B00E25FF4 /* Organization */,
 				8D8A9E4328B7847300E25FF4 /* Identity */,
-				8D34816728B37C2000E37132 /* CollectionView.swift */,
-				8D34817728B4E68200E37132 /* CategoryCardViewswift.swift */,
-				8D8A9E3E28B77CD300E25FF4 /* ReselectButton.swift */,
 			);
 			path = Collection;
 			sourceTree = "<group>";
@@ -180,6 +176,7 @@
 		8D73D02028B99CE700A4DBF7 /* buttons */ = {
 			isa = PBXGroup;
 			children = (
+				8D8A9E3E28B77CD300E25FF4 /* RoundButton.swift */,
 				8D73D01A28B8BA6700A4DBF7 /* ToolBarButton.swift */,
 				8D8A9E5228B8628D00E25FF4 /* PrimaryButton.swift */,
 				8D73D02128B9A11600A4DBF7 /* AddSthButton.swift */,
@@ -187,19 +184,11 @@
 			path = buttons;
 			sourceTree = "<group>";
 		};
-		8D8A9E4028B77ED900E25FF4 /* Find */ = {
-			isa = PBXGroup;
-			children = (
-				8D8A9E4128B77EE400E25FF4 /* FindView.swift */,
-			);
-			path = Find;
-			sourceTree = "<group>";
-		};
 		8D8A9E4328B7847300E25FF4 /* Identity */ = {
 			isa = PBXGroup;
 			children = (
 				8D8A9E4928B78B5900E25FF4 /* IdentityView.swift */,
-				8D73D01828B8B90B00A4DBF7 /* IdentityListView.swift */,
+				8DB1A77128C08C5100694A18 /* IdentityGroupView.swift */,
 				8D8A9E4E28B8527100E25FF4 /* CreateIdentityView.swift */,
 				8D73D01E28B8BBF500A4DBF7 /* IdentityDetailView.swift */,
 			);
@@ -210,11 +199,19 @@
 			isa = PBXGroup;
 			children = (
 				8D8A9E4728B78B3400E25FF4 /* OrganizationView.swift */,
-				8D1DC89B28B87ADE005C887F /* OrganizationGridView.swift */,
+				8D1DC89B28B87ADE005C887F /* OrganizationGroupView.swift */,
 				8D8A9E5028B85F7000E25FF4 /* CreateOrganizationView.swift */,
 				8D73D01C28B8BBEA00A4DBF7 /* OrganizationDetailView.swift */,
 			);
 			path = Organization;
+			sourceTree = "<group>";
+		};
+		8DB1A77028BFCD2100694A18 /* cards */ = {
+			isa = PBXGroup;
+			children = (
+				8D34817728B4E68200E37132 /* CategoryCardView.swift */,
+			);
+			path = cards;
 			sourceTree = "<group>";
 		};
 		8DBDA6D3289CE1F800E5B464 = {
@@ -271,10 +268,10 @@
 		8DBDA6F528A0C15700E5B464 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8DB1A77028BFCD2100694A18 /* cards */,
 				8D599B7928BA243700BA0ED4 /* inputs */,
 				8D599B7628B9F02B00BA0ED4 /* badges */,
 				8D73D02028B99CE700A4DBF7 /* buttons */,
-				8D8A9E4028B77ED900E25FF4 /* Find */,
 				8D34816428B37AEF00E37132 /* Settings */,
 				8D34816328B37ADB00E37132 /* Collection */,
 			);
@@ -377,16 +374,17 @@
 				8D2DA29D28AF2774004B5491 /* NSSet.swift in Sources */,
 				8D73D01F28B8BBF500A4DBF7 /* IdentityDetailView.swift in Sources */,
 				8D73D01128B8B17F00A4DBF7 /* RecordInfo.swift in Sources */,
-				8D1DC89C28B87ADE005C887F /* OrganizationGridView.swift in Sources */,
+				8D1DC89C28B87ADE005C887F /* OrganizationGroupView.swift in Sources */,
 				8D34816E28B3AE7C00E37132 /* RecordRowView.swift in Sources */,
 				8D34817428B4A9CE00E37132 /* CreateRecordView.swift in Sources */,
 				8DBDA6F1289CE2AF00E5B464 /* YrStone.xcdatamodeld in Sources */,
-				8D34817828B4E68200E37132 /* CategoryCardViewswift.swift in Sources */,
+				8D34817828B4E68200E37132 /* CategoryCardView.swift in Sources */,
 				8D73170428AB38C500D9CFD5 /* Color.swift in Sources */,
 				8D34816A28B37C4300E37132 /* SettingsView.swift in Sources */,
 				8D73D01B28B8BA6700A4DBF7 /* ToolBarButton.swift in Sources */,
 				8DCD361E28B734490017C448 /* RecordDetailView.swift in Sources */,
 				8D870DAA28BDC40F00375B53 /* Array.swift in Sources */,
+				8DB1A77228C08C5100694A18 /* IdentityGroupView.swift in Sources */,
 				8D34817628B4C10400E37132 /* NoRecordPlaceholder.swift in Sources */,
 				8D870DC528BDF57F00375B53 /* extensions.swift in Sources */,
 				8D8A9E5128B85F7000E25FF4 /* CreateOrganizationView.swift in Sources */,
@@ -399,11 +397,10 @@
 				8D73D01D28B8BBEA00A4DBF7 /* OrganizationDetailView.swift in Sources */,
 				8D599B7828B9F04D00BA0ED4 /* AutoColoredBadge.swift in Sources */,
 				8D34816C28B37FBB00E37132 /* UIColor.swift in Sources */,
-				8D8A9E4228B77EE400E25FF4 /* FindView.swift in Sources */,
 				8D34817228B45A5A00E37132 /* RecentRecordList.swift in Sources */,
 				8DBDA6E0289CE1F800E5B464 /* YrStoneApp.swift in Sources */,
 				8D73D01728B8B72A00A4DBF7 /* gradients.swift in Sources */,
-				8D8A9E3F28B77CD300E25FF4 /* ReselectButton.swift in Sources */,
+				8D8A9E3F28B77CD300E25FF4 /* RoundButton.swift in Sources */,
 				8D73D01328B8B1D100A4DBF7 /* OrganizationInfo.swift in Sources */,
 				8D870DA828BDBE0D00375B53 /* OrganizationDomainInfo.swift in Sources */,
 				8DBDA6FF28A1124700E5B464 /* RecordCollectionViewModel.swift in Sources */,
@@ -412,7 +409,6 @@
 				8DBDA6F4289FF25700E5B464 /* PersistenceController.swift in Sources */,
 				8DCD361C28B6FFE60017C448 /* RecordListView.swift in Sources */,
 				8D8A9E4F28B8527100E25FF4 /* CreateIdentityView.swift in Sources */,
-				8D73D01928B8B90B00A4DBF7 /* IdentityListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

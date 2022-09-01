@@ -20,13 +20,11 @@ struct RecordRowView: View {
                 .frame(width: 40, height:40)
             VStack(alignment: .leading) {
                 Text(identityName)
-                    .foregroundColor(Color.AppTextDark)
                     .font(.subheadline)
                     .bold()
                     .lineLimit(1)
                 Text(record.username)
                     .font(.footnote)
-                    .foregroundColor(Color.AppTextDark)
                     .opacity(0.8)
                     .lineLimit(1)
                 HStack {
@@ -42,6 +40,7 @@ struct RecordRowView: View {
                     }
                 }
             }
+            .foregroundColor(Color.AppText)
             Spacer()
         }
         .padding(.vertical, 8)

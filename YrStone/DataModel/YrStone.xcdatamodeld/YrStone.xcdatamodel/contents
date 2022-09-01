@@ -24,6 +24,7 @@
         </uniquenessConstraints>
     </entity>
     <entity name="YrRecordEntity" representedClassName="YrRecordEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="lastAccess" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="password" attributeType="String"/>
         <attribute name="username" attributeType="String"/>
         <relationship name="fields" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="YrRecordFieldEntity" inverseName="record" inverseEntity="YrRecordFieldEntity"/>

@@ -9,8 +9,9 @@ import SwiftUI
 
 struct IdentityView: View {
     @EnvironmentObject var recordCollectionViewModel: RecordCollectionViewModel
-    @State var showCreateIdentity: Bool = false
-    @State var showDetail: Bool = false
+    
+    @State var showCreatePage: Bool = false
+    @State var showDetailPage: Bool = false
     
     init() {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
@@ -21,9 +22,12 @@ struct IdentityView: View {
     }
     
     var body: some View {
-        IdentityListView(onTap: {
-            showDetail = true
-        })
+        IdentityGroupView(
+            onTap: {
+                showDetailPage = true
+            },
+            shape: RoundedRectangle(cornerRadius: 20)
+        )
         .padding(.horizontal)
         // TODO: deleting the padding will cause the navigationBarTitleDisplayMode change when scrolling which is unexpected.
         .padding(.vertical,1)
@@ -34,9 +38,7 @@ struct IdentityView: View {
         .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action:{
-                    showCreateIdentity = true
-                }) {
+                Button(action:{ showCreatePage = true }) {
                     HStack(spacing: 0){
                         Image(systemName: "plus")
                         Image.IdentityIcon
@@ -46,11 +48,11 @@ struct IdentityView: View {
                 .buttonStyle(ToolBarButton())
             }
         }
-        .sheet(isPresented: $showDetail) {
+        .sheet(isPresented: $showDetailPage) {
             IdentityDetailView()
                 .presentationDetents([.medium])
         }
-        .navigationDestination(isPresented: $showCreateIdentity) {
+        .navigationDestination(isPresented: $showCreatePage) {
             CreateIdentityView()
         }
         .onAppear() {

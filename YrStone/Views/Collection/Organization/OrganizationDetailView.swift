@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OrganizationDetailView: View {
     @EnvironmentObject var vm: RecordCollectionViewModel
+    @Environment(\.colorScheme) var colorScheme
     @State var inputName: String = ""
     @State var inputDomains: [OrganizationDomainInfo] = []
     @State var editMode = false
@@ -27,7 +28,7 @@ struct OrganizationDetailView: View {
                     Text("Detail")
                         .font(.title)
                         .bold()
-                        .foregroundColor(Color.AppPrimary5)
+                        .foregroundColor(Color.AppText)
                         .padding()
                     Divider()
                     RoundedIconTextField(value: $inputName, icon: Image.OrganizationIcon, label: "Name", editable: editMode, color: info.name == inputName ? .AppPrimary5 : .AppPrimary2)
@@ -35,7 +36,7 @@ struct OrganizationDetailView: View {
                     Text("Domains")
                         .font(.title2)
                         .bold()
-                        .foregroundColor(.AppPrimary5)
+                        .foregroundColor(Color.AppText)
                     ScrollView {
                         VStack {
                             ForEach(Array(inputDomains.enumerated()), id: \.offset) { index, element in
@@ -49,8 +50,8 @@ struct OrganizationDetailView: View {
                             }
                         }
                         .background(
-                            RoundedRectangle(cornerRadius: 30)
-                                .foregroundColor(Color.AppSecondaryLight)
+                            RoundedRectangle(cornerRadius: 20)
+                                .foregroundColor(.AppTextFieldBackground)
                         )
                     }
                     HStack {
@@ -76,24 +77,25 @@ struct OrganizationDetailView: View {
                         updateInfo.domains = inputDomains
                         vm.updateOrganization(info: updateInfo)
                     }
-                        editMode = !editMode
-                        }) {
-                        Image(systemName: editMode ? "checkmark" : "pencil")
-                    }
-                        .buttonStyle(ToolBarButton(revColor: editMode))
-                        .padding()
+                    editMode = !editMode
+                }) {
+                    Image(systemName: editMode ? "checkmark" : "pencil")
                 }
-                    .onAppear{
-                        inputName = info.name
-                        inputDomains = info.domains
-                    }
-                       }
-                       }
-                       }
-                       
-                       struct OrganizationDetailView_Previews: PreviewProvider {
-                    static var previews: some View {
-                        OrganizationDetailView()
-                            .environmentObject(RecordCollectionViewModel.SharedForPreview)
-                    }
-                }
+                .buttonStyle(ToolBarButton(rotate: editMode))
+                .padding()
+            }
+            .padding()
+            .onAppear{
+                inputName = info.name
+                inputDomains = info.domains
+            }
+        }
+    }
+}
+
+struct OrganizationDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        OrganizationDetailView()
+            .environmentObject(RecordCollectionViewModel.SharedForPreview)
+    }
+}

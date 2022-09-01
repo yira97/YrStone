@@ -8,18 +8,17 @@
 import SwiftUI
 
 struct NoRecordPlaceholder: View {
+    var color = Color.AppPrimary5
     var body: some View {
         VStack {
             Image(systemName: "tray")
                 .resizable()
                 .scaledToFit()
-                .foregroundColor(Color.AppPrimary2)
-                .opacity(0.5)
+                .foregroundColor(color)
                 .frame(width: 60,height:60)
             Text("No Record")
-                .foregroundColor(Color.AppPrimary2)
+                .foregroundColor(color)
                 .bold()
-                .opacity(0.6)
         }
         .padding()
     }

@@ -22,13 +22,6 @@ struct AppView: View {
                         Image(systemName: "books.vertical")
                     }
                 }
-            FindView()
-                .tabItem {
-                    VStack {
-                        Text("Find")
-                        Image(systemName: "magnifyingglass")
-                    }
-                }
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")

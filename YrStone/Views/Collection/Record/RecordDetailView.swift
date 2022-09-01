@@ -29,9 +29,10 @@ struct RecordDetailView: View {
         let identityName = record.Identity?.name ?? "Anonymous"
         
         VStack {
-            AutoColoredBadge(label: organizationName)
-                .frame(width: 120,height: 120)
-                .padding(.top)
+            Text(organizationName)
+                .font(.largeTitle)
+                .bold()
+                .padding()
             HStack {
                 Image.IdentityIcon
                 Text(identityName)
@@ -86,7 +87,7 @@ struct RecordDetailView: View {
                 }
                 .background(
                     RoundedRectangle(cornerRadius: 20)
-                        .foregroundColor(.AppSecondaryLight)
+                        .foregroundColor(.AppCardBackground)
                 )
             }
             HStack {
@@ -121,7 +122,7 @@ struct RecordDetailView: View {
                     let icon = editingMode ? Image(systemName: "checkmark") : Image(systemName: "pencil")
                     icon
                 }
-                .buttonStyle(ToolBarButton(revColor: editingMode))
+                .buttonStyle(ToolBarButton(rotate: editingMode))
             }
         }
         .onAppear {

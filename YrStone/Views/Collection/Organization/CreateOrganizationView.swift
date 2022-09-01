@@ -20,7 +20,7 @@ struct CreateOrganizationView: View {
                 Text("Create Organization")
                     .font(.title)
                     .bold()
-                    .foregroundColor(Color.AppText(colorScheme))
+                    .foregroundColor(Color.AppText)
                     .padding(.bottom)
                     .padding()
                 RoundedIconTextField(value: $inputOrganizationName, icon: Image(systemName: "person.fill"), label: "Name")
@@ -28,18 +28,18 @@ struct CreateOrganizationView: View {
                 Text("Domains")
                     .font(.title2)
                     .bold()
-                    .foregroundColor(Color.AppText(colorScheme))
+                    .foregroundColor(Color.AppText)
                     .padding()
                 VStack {
                     VStack {
                         ForEach(Array(inputOrganizationDomains.enumerated()), id: \.offset) { index, element in
-                            RoundedIconTextField(value: $inputOrganizationDomains[index], icon: Image(systemName: "list.bullet.rectangle.fill"), label: "Domain\(index+1)")
+                            RoundedIconTextField(value: $inputOrganizationDomains[index], icon: Image(systemName: "list.bullet.rectangle.fill"), label: "Domain\(index+1)", height: 50)
                         }
                     }
                     .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 30)
-                            .foregroundColor(Color.AppSecondaryLight)
+                            .foregroundColor(.AppTextFieldBackground)
                     )
                     HStack {
                         Spacer()
@@ -68,7 +68,7 @@ struct CreateOrganizationView: View {
             }
             .padding()
         }
-        .background(Color.AppBackground(colorScheme))
+        .background(Color.AppCanvas)
     }
 }
     

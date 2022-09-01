@@ -12,7 +12,6 @@ struct RoundedIconTextField: View {
     var icon: Image
     var label: String
     var editable: Bool = true
-    var width: CGFloat = .infinity
     var height: CGFloat = 60
     var color: Color = Color.AppPrimary5
     @Environment(\.colorScheme) var colorScheme
@@ -41,11 +40,11 @@ struct RoundedIconTextField: View {
             })
             .background(
                 RoundedRectangle(cornerRadius:50)
-                    .foregroundColor(.AppSecondary(colorScheme))
+                    .foregroundColor(.AppTextFieldBackground)
                     .frame(width: gr.size.width, height: gr.size.height)
             )
         }
-        .frame(width: width, height: height)
+        .frame(height: height)
     }
 }
 

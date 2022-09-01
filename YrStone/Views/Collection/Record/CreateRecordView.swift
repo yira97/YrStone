@@ -9,8 +9,8 @@ import SwiftUI
 
 struct CreateRecordView: View {
     @EnvironmentObject var recordCollectionViewModel: RecordCollectionViewModel
-    @Environment(\.colorScheme) var colorScheme
     @Environment(\.dismiss) private var dismiss
+    
     @State private var inputUsername = ""
     @State private var inputPassword = ""
     @State private var inputExtras = [RecordInfo.ExtraContent]()
@@ -18,27 +18,69 @@ struct CreateRecordView: View {
     @State private var showIdentitySelection = false
     @State private var showOrganizationSelection = false
     
+    @ViewBuilder
+    func pleaseSelect(title: String, value: String, action: @escaping () -> Void) -> some View {
+        HStack {
+            Text("Select an")
+                .fontWeight(.light)
+            Text(title)
+        }
+        .font(.title3)
+        .foregroundColor(.AppText)
+        Text(value)
+            .frame(width:120)
+            .font(.title3)
+            .bold()
+            .foregroundColor(.AppPrimary2)
+            .padding(.horizontal)
+            .padding(.trailing, 20)
+            .padding()
+            .frame(height:50)
+            .background(
+                RoundedRectangle(cornerRadius: 50, style: .continuous)
+                    .foregroundColor(.AppCardBackground)
+            )
+            .overlay(
+                Button(action: action){
+                    Image.RefreshIcon
+                        .resizable()
+                        .scaledToFit()
+                }
+                    .buttonStyle(RoundButton())
+                ,alignment: .trailing
+            )
+    }
+    
     var body: some View {
-        VStack (alignment: .center) {
+        VStack {
             Text("Create Record")
                 .font(.title)
                 .bold()
-                .foregroundColor(.AppText(colorScheme))
+                .foregroundColor(.AppText)
                 .padding()
             ScrollView {
-                VStack (alignment: .center) {
-                    
-                    RoundedIconTextField(value: $inputUsername, icon: Image(systemName: "person.fill"), label: "Username",editable: true)
-                        .padding(.bottom)
-                    RoundedIconTextField(value: $inputPassword, icon: Image(systemName: "key.fill"), label: "Password")
-                        .padding(.bottom)
+                VStack {
+                    RoundedIconTextField(
+                        value: $inputUsername,
+                        icon: Image(systemName: "person.fill"),
+                        label: "Username",
+                        editable: true
+                    )
+                    .padding(.bottom)
+                    RoundedIconTextField(
+                        value: $inputPassword,
+                        icon: Image(systemName: "key.fill"),
+                        label: "Password"
+                    )
+                    .padding(.bottom)
                     VStack {
                         if (inputExtras.count > 0) {
-                            Text("Extra Info")
-                                .font(.title3)
+                            Text("Extra Information")
                                 .bold()
                                 .foregroundColor(.AppPrimary5)
-                                .padding()
+                                .opacity(0.8)
+                                .padding(.top)
+                            Divider()
                         }
                         ForEach(Array(inputExtras.enumerated()), id: \.offset) {index, offset in
                             HStack {
@@ -46,172 +88,139 @@ struct CreateRecordView: View {
                                     value: $inputExtras[index].content,
                                     icon: Image(systemName: "doc.plaintext.fill"),
                                     label: "Content",
-                                    height: 50
+                                    height: 40
                                 )
                                 
                                 RoundedIconTextField(
                                     value: $inputExtras[index].desc,
                                     icon: Image(systemName: "bookmark.fill"),
                                     label: "Description",
-                                    height: 50
+                                    height: 40
                                 )
                             }
                         }
                     }
                     .background(
-                        RoundedRectangle(cornerRadius: 20)
-                            .foregroundColor(Color.AppSecondaryLight)
+                        RoundedRectangle(cornerRadius: 25)
+                            .foregroundColor(Color.AppCardBackground)
                     )
                     HStack {
                         Spacer()
                         Button("Add Field") {
-                            if let extra = inputExtras.last {
-                                guard(extra.content.isNotEmpty && extra.desc.isNotEmpty) else {
-                                    return
-                                }
+                            guard inputExtras.valid() else {
+                                return
                             }
-                            
                             inputExtras.append(RecordInfo.ExtraContent(content: "", desc:""))
                         }
                         .buttonStyle(AddSthButton())
                     }
                     
-                    
                     Divider()
                     
                     VStack {
-                        HStack {
-                            Text("Select an")
-                                .opacity(0.85)
-                            Text("Identity")
-                        }
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.AppText(colorScheme))
-                        Text(recordCollectionViewModel.focusedIdentity?.name ?? "")
-                            .frame(width:120)
-                            .font(.title3)
-                            .bold()
-                            .foregroundColor(.AppPrimary2)
-                            .padding(.horizontal)
-                            .padding(.trailing, 20)
-                            .padding()
-                            .background(
-                                RoundedRectangle(cornerRadius: 50, style: .continuous)
-                                    .foregroundColor(.AppSecondaryLight)
-                            )
-                            .overlay(
-                                ReselectButton(action: {
-                                    showIdentitySelection = true
-                                }, dimension: 50),alignment: .trailing
-                            )
-                        
-                        HStack {
-                            Text("Select an")
-                                .opacity(0.85)
-                            Text("Organization")
-                        }
-                        .font(.title3)
-                        .bold()
-                        .foregroundColor(.AppText(colorScheme))
-                        .padding(.top)
-                        ZStack(alignment:.trailing) {
-                            Text(recordCollectionViewModel.focusedOrganization?.name ?? "")
-                                .frame(width: 120)
-                                .font(.title3)
-                                .bold()
-                                .foregroundColor(.AppPrimary2)
-                                .padding(.horizontal)
-                                .padding(.trailing, 20)
-                                .padding()
-                                .background(
-                                    RoundedRectangle(cornerRadius: 50, style: .continuous)
-                                        .foregroundColor(.AppSecondaryLight)
-                                )
-                            ReselectButton(action: {
-                                showOrganizationSelection = true
-                            }, dimension: 50)
-                        }
+                        pleaseSelect(
+                            title: "Identity",
+                            value: recordCollectionViewModel.focusedIdentity?.name ?? "",
+                            action: { showIdentitySelection = true }
+                        )
+                        pleaseSelect(
+                            title: "Organization",
+                            value: recordCollectionViewModel.focusedOrganization?.name ?? "",
+                            action: { showOrganizationSelection = true }
+                        )
                     }
                     .padding()
                     Divider()
                     Button("Save") {
-                        guard (inputUsername.isNotEmpty && inputPassword.isNotEmpty) else {
+                        guard (
+                            inputUsername.isNotEmpty &&
+                            inputPassword.isNotEmpty &&
+                            inputExtras.valid()
+                        ) else {
                             return
                         }
-                        guard (!inputExtras.contains(where: { extra in
-                            extra.desc.isEmpty || extra.content.isEmpty
-                        })) else {
-                            return
-                        }
-                        let info = RecordInfo(username: inputUsername, password: inputPassword, extraContents: inputExtras)
-                        recordCollectionViewModel.createRecord(info: info, identityName: recordCollectionViewModel.focusedIdentity?.name, organizationName:     recordCollectionViewModel.focusedOrganization?.name)
+                        let info = RecordInfo(
+                            username: inputUsername,
+                            password: inputPassword,
+                            extraContents: inputExtras
+                        )
+                        recordCollectionViewModel.createRecord(
+                            info: info,
+                            identityName: recordCollectionViewModel.focusedIdentity?.name,
+                            organizationName:     recordCollectionViewModel.focusedOrganization?.name
+                        )
                         dismiss()
                     }
                     .buttonStyle(PrimaryButton())
                 }
                 .padding([.horizontal])
             }
+            // Identity Page
             .sheet(isPresented: $showIdentitySelection) {
                 VStack {
-                    RoundedRectangle(cornerRadius: 15)
+                    RoundedRectangle(cornerRadius: 20)
                         .frame(height: 40)
-                        .foregroundColor(Color.AppPrimary3)
-                        .opacity(0.7)
+                        .foregroundColor(Color.AppCardBackground)
                         .overlay(
                             Image(systemName: "xmark")
-                                .foregroundColor(Color.AppTextDark)
+                                .foregroundColor(Color.AppText)
                         )
                         .onTapGesture {
                             recordCollectionViewModel.focusedIdentity = nil
                             showIdentitySelection = false
                         }
-                    IdentityListView(
+                    IdentityGroupView(
                         onTap: {
                             showIdentitySelection = false
                         },
-                        activeColor: Color.AppPrimary2
+                        shape: Circle()
                     )
                 }
                 .padding()
-                .background(Color.AppPrimary5)
+                .background(LinearGradient.ForIdentity)
                 .presentationDetents([.medium])
             }
+            // Organization Page
             .sheet(isPresented: $showOrganizationSelection) {
                 VStack {
-                    RoundedRectangle(cornerRadius: 15)
+                    RoundedRectangle(cornerRadius: 20)
                         .frame(height: 40)
-                        .foregroundColor(Color.AppPrimary3)
-                        .opacity(0.7)
+                        .foregroundColor(Color.AppCardBackground)
                         .overlay(
                             Image(systemName: "xmark")
-                                .foregroundColor(Color.AppTextDark)
+                                .foregroundColor(Color.AppText)
                         )
                         .onTapGesture {
                             recordCollectionViewModel.focusedOrganization = nil
                             showOrganizationSelection = false
                         }
-                    OrganizationGridView(
+                    OrganizationGroupView (
                         onTap: {
                             showOrganizationSelection = false
                         },
-                        activeColor: Color.AppPrimary2
+                        displayMode: .List,
+                        shape: RoundedRectangle(cornerRadius: 20)
                     )
                 }
                 .padding()
-                .background(Color.AppPrimary5)
+                .background(LinearGradient.ForOrganization)
                 .presentationDetents([.medium])
             }
         }
-        .background(
-            Color.AppBackground(colorScheme)
-        )
+        .background(Color.AppCanvas)
     }
 }
 
 struct CreateRecordView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateRecordView()
-            .environmentObject(RecordCollectionViewModel.SharedForPreview)
+        Group {
+            CreateRecordView()
+                .environmentObject(RecordCollectionViewModel.SharedForPreview)
+                .previewDisplayName("light")
+            CreateRecordView()
+                .environmentObject(RecordCollectionViewModel.SharedForPreview)
+                .preferredColorScheme(.dark)
+                .previewDisplayName("dark")
+        }
     }
 }

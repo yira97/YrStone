@@ -10,6 +10,7 @@ import SwiftUI
 struct CategoryCardView<Background: View>: View {
     var background: Background
     var text: String
+    var textColor = Color.white.opacity(0.7)
     var icon: Image
     
     var body: some View {
@@ -26,14 +27,12 @@ struct CategoryCardView<Background: View>: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 50,height: 50)
-                            .foregroundColor(.AppTextDark)
-                            .opacity(0.6)
+                            .foregroundColor(textColor)
                             .padding([.top,.trailing])
                     ,alignment: .topTrailing
                 )
             Text(text)
-                .foregroundColor(Color.AppTextLight)
-                .opacity(0.8)
+                .foregroundColor(textColor)
                 .bold()
                 .padding()
         }

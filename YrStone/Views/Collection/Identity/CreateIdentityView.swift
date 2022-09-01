@@ -19,7 +19,7 @@ struct CreateIdentityView: View {
                 Text("Create Identity")
                     .font(.title)
                     .bold()
-                    .foregroundColor(Color.AppText(colorScheme))
+                    .foregroundColor(Color.AppText)
                     .padding(.bottom)
                     .padding()
                 RoundedIconTextField(value: $inputIdentityName, icon: Image(systemName: "person.fill"), label: "Name")
@@ -37,7 +37,7 @@ struct CreateIdentityView: View {
             }
             .padding()
         }
-        .background(Color.AppBackground(colorScheme))
+        .background(Color.AppCanvas)
     }
 }
 

@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct PrimaryButton: ButtonStyle {
+    var backColor = Color.AppPrimary3
+    var frontColor = Color.white
+    
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .foregroundColor(.AppTextLight)
+            .foregroundColor(frontColor)
             .font(.title2)
             .padding(.horizontal)
             .padding()
             .background(
-                RoundedRectangle(cornerRadius: 45, style: .continuous)
-                    .foregroundColor(.AppPrimary3)
-                    .shadow(color: .AppPrimary3.opacity(0.6), radius: 10)
+                RoundedRectangle(cornerRadius: 50, style: .continuous)
+                    .foregroundColor(backColor)
+                    .shadow(color: backColor.opacity(0.5), radius: 5)
             )
             .padding()
     }

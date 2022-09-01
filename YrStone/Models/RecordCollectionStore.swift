@@ -10,6 +10,12 @@ import CoreData
 
 struct RecordCollectionStore {
     
+    var searchText: String? {
+        didSet {
+            loadRecords()
+        }
+    }
+    
     var selectedOrganization: YrOrganizationEntity? {
         didSet {
             loadRecords()

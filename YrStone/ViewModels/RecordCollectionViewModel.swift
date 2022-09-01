@@ -7,16 +7,28 @@
 
 import SwiftUI
 import CoreData
+import Combine
 
 class RecordCollectionViewModel : ObservableObject {
     
     @Published var focusedIdentity: YrIdentityEntity?
     @Published var focusedOrganization: YrOrganizationEntity?
+    @Published var inputSearchText: String = ""
+    
+    var searchSubscription =  Set<AnyCancellable>()
     
     @Published private var  _recordCollectionStore : RecordCollectionStore
     
     init (recordCollectionStore: RecordCollectionStore) {
         _recordCollectionStore = recordCollectionStore
+        
+        $inputSearchText
+            .dropFirst()
+            .debounce(for: .seconds(1), scheduler: RunLoop.main)
+            .sink { [weak self] term in
+                self?._recordCollectionStore.searchText = term
+            }
+            .store(in: &searchSubscription)
     }
     
     var selectedOrganization: YrOrganizationEntity? {
