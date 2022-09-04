@@ -31,7 +31,14 @@ struct OrganizationDetailView: View {
                         .foregroundColor(Color.AppText)
                         .padding()
                     Divider()
-                    RoundedIconTextField(value: $inputName, icon: Image.OrganizationIcon, label: "Name", editable: editMode, color: info.name == inputName ? .AppPrimary5 : .AppPrimary2)
+                    RoundedIconTextField(
+                        value: $inputName,
+                        icon: Image.OrganizationIcon,
+                        label: "Name",
+                        editable: editMode,
+                        color: info.name == inputName ? .AppPrimary5 : .AppPrimary2
+                    )
+                    .frame(maxWidth: Design.TextField.MaxWidth)
                         .padding()
                     Text("Domains")
                         .font(.title2)
@@ -53,6 +60,7 @@ struct OrganizationDetailView: View {
                             RoundedRectangle(cornerRadius: 20)
                                 .foregroundColor(.AppTextFieldBackground)
                         )
+                        .frame(maxWidth: Design.TextField.MaxWidth)
                     }
                     HStack {
                         Spacer()

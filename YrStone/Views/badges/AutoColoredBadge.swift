@@ -9,45 +9,37 @@ import SwiftUI
 
 struct AutoColoredBadge: View {
     var label: String
-    var ratio = 0.95
+    var width: CGFloat = 50
+    var height: CGFloat?
+    var frontColor = Color.white
+    
     var body: some View {
-        GeometryReader { geometry in
-            let (r, g, b) = label.hashedRGB
-            let width = min(geometry.size.width, geometry.size.width)
+        let (r, g, b) = label.hashedRGB
+        ZStack(alignment:.center) {
+            Color(red: r, green: g, blue: b)
+                .saturation(0.5)
             Text(label)
-                .font(.largeTitle)
+                .font(.system(.largeTitle, design: .serif).italic())
                 .scaledToFit()
                 .minimumScaleFactor(0.01)
                 .lineLimit(1)
-                .foregroundColor(Color.AppText)
-                .frame(maxWidth: width*ratio, maxHeight: width*ratio)
-                .background(
-                    Circle()
-                        .fill(Color(red: r/255, green: g/255, blue: b/255))
-                        .saturation(0.5)
-                        .opacity(0.8)
-                        .frame(width: geometry.size.width, height: geometry.size.height)
-                )
         }
-        
+        .frame(width: width, height: height != nil ? height! : width)
     }
 }
 
 struct AutoColoredBadge_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            AutoColoredBadge(label: "Indivisual")
-                .frame(width: 40, height: 40)
-            AutoColoredBadge(label: "Yiran")
-                .frame(width: 40, height: 40)
-            AutoColoredBadge(label: "Yiran")
-                .frame(width: 50, height: 50)
-            AutoColoredBadge(label: "Yiran")
-                .frame(width: 70, height: 70)
-            AutoColoredBadge(label: "Yiran")
-                .frame(width: 100, height: 100)
-            AutoColoredBadge(label: "Indivisual")
-                .frame(width: 100, height: 100)
+            AutoColoredBadge(label: "Zoom")
+            AutoColoredBadge(label: "Mooz")
+            AutoColoredBadge(label: "Zoob",width: 100)
+            AutoColoredBadge(label: "Aoob",width: 300)
+            AutoColoredBadge(label: "ao")
+            AutoColoredBadge(label: "bo")
+            AutoColoredBadge(label: "co",width:300, height:100)
+            AutoColoredBadge(label: "p", width: 100, height: 300)
         }
+        .background(Color.black)
     }
 }

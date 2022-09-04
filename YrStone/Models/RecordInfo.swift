@@ -21,7 +21,7 @@ struct RecordInfo: Equatable {
     var extraContents: [ExtraContent] = []
     
     var organization: OrganizationInfo?
-    var Identity: IdentityInfo?
+    var identity: IdentityInfo?
     
     var managedEntity: YrRecordEntity?
 }
@@ -39,6 +39,13 @@ extension RecordInfo.ExtraContent {
     }
 }
 
+extension RecordInfo.ExtraContent {
+    func isValid () -> Bool {
+        self.content.isNotEmpty &&
+        self.desc.isNotEmpty
+    }
+}
+
 extension Array<RecordInfo.ExtraContent> {
     func displaySorting() -> [RecordInfo.ExtraContent] {
         self.sorted(using: [
@@ -48,10 +55,7 @@ extension Array<RecordInfo.ExtraContent> {
     }
     
     func valid() -> Bool {
-        !self.contains(where: {
-            $0.content.isEmpty ||
-            $0.desc.isEmpty
-        })
+        self.allSatisfy { $0.isValid() }
     }
 }
 
@@ -70,7 +74,7 @@ extension RecordInfo {
         }
         
         if let identity = entity.identity {
-            info.Identity = IdentityInfo.fromYrIdentityEntity(entity: identity)
+            info.identity = IdentityInfo.fromYrIdentityEntity(entity: identity)
         }
         
         info.managedEntity = entity
@@ -84,7 +88,7 @@ extension RecordInfo {
         var info = RecordInfo(username: "fangyira@gmail.com", password: "123456")
         info.extraContents = [RecordInfo.ExtraContent(content: "123-4567-890", desc: "phone"), RecordInfo.ExtraContent(content: "123-4567", desc: "post code")]
         info.organization = OrganizationInfo(name: "Apple",domains: [.init(value: "apple.com"),.init(value: "icloud.com")])
-        info.Identity = IdentityInfo(name: "Yiran Feng")
+        info.identity = IdentityInfo(name: "Yiran Feng", avatarIndex: 3)
         return info
     }
 }

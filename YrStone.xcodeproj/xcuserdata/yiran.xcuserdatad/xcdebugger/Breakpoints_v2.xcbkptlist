@@ -14,9 +14,25 @@
             filePath = "YrStone/Models/RecordCollectionStore.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "318"
+            endingLineNumber = "318"
             landmarkName = "updateRecord(info:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CB0EA966-DAC5-46A0-AD6D-A882FCFD1705"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "YrStone/Models/IdentityInfo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "fromYrIdentityEntity(entity:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -13,13 +13,12 @@ struct RecordRowView: View {
     
     var body: some View {
         let organizationName = record.organization?.formattedName ?? "Indivisual"
-        let identityName = record.Identity?.name ?? "Anonymous"
         
         HStack(spacing: 20) {
-            AutoColoredBadge(label: organizationName)
-                .frame(width: 40, height:40)
+            AvatarBase(index: record.identity?.avatarIndex,width: 40)
+                .clipShape(Circle())
             VStack(alignment: .leading) {
-                Text(identityName)
+                Text(organizationName)
                     .font(.subheadline)
                     .bold()
                     .lineLimit(1)

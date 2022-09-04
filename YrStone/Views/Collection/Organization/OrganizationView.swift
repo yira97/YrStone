@@ -16,24 +16,17 @@ struct OrganizationView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
-    func resetFocus() {
-        recordCollectionViewModel.focusedOrganization = nil
-    }
-    
     var body: some View {
         OrganizationGroupView(
-            onTap: {
+            displayMode: .Card,
+            afterTap: {
                 showDetail = true
-            },
-            displayMode: .List,
-            shape: RoundedRectangle(cornerRadius: 20)
+            }
         )
         .padding(.horizontal)
-        // TODO: deleting the padding will cause the navigationBarTitleDisplayMode change when scrolling which is unexpected.
-        .padding(.vertical, 1)
         .background(LinearGradient.ForOrganization)
         .navigationTitle("Organizations")
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action:{
@@ -56,10 +49,11 @@ struct OrganizationView: View {
                 .presentationDetents([.medium])
         }
         .onAppear {
-            resetFocus()
+            recordCollectionViewModel.clearFocus()
+            debugPrint("OrganizationView appear")
         }
         .onDisappear {
-            resetFocus()
+            recordCollectionViewModel.clearFocus()
         }
     }
 }
@@ -67,5 +61,6 @@ struct OrganizationView: View {
 struct OrganizationView_Previews: PreviewProvider {
     static var previews: some View {
         OrganizationView()
+            .environmentObject(RecordCollectionViewModel.SharedForPreview)
     }
 }

@@ -11,10 +11,12 @@ struct IdentityDetailView: View {
     @EnvironmentObject var vm: RecordCollectionViewModel
     @Environment(\.colorScheme) var colorScheme
     @State var inputName: String = ""
+    @State var inputAvatarIndex: Int = 1
     @State var editMode = false
     
-    func getChanged(info: IdentityInfo)-> Bool {
-        inputName != info.name
+    func isChanged(_ info: IdentityInfo)-> Bool {
+        inputName != info.name ||
+        inputAvatarIndex != info.avatarIndex
     }
     
     var body: some View {
@@ -29,7 +31,16 @@ struct IdentityDetailView: View {
                         .foregroundColor(Color.AppText)
                         .padding()
                     Divider()
-                    RoundedIconTextField(value: $inputName, icon: Image.IdentityIcon, label: "Name", editable: editMode, color: vm.focusedIdentity!.name == inputName ? .AppPrimary5 : .AppPrimary2)
+                    Avatar(inputAvatarIndex: $inputAvatarIndex, editable: editMode)
+                    RoundedIconTextField(
+                        value: $inputName,
+                        icon: Image.IdentityIcon,
+                        label: "Name",
+                        editable: editMode,
+                        height: Design.TextField.MainHeight,
+                        color: vm.focusedIdentity!.name == inputName ? .AppPrimary5 : .AppPrimary2
+                    )
+                    .frame(maxWidth: Design.TextField.MaxWidth)
                         .padding()
                     Spacer()
                 }
@@ -37,9 +48,10 @@ struct IdentityDetailView: View {
                 Button(action: {
                     if (editMode) {
                         let originalInfo = IdentityInfo.fromYrIdentityEntity(entity: vm.focusedIdentity!)
-                        if (getChanged(info: originalInfo)) {
+                        if (isChanged(originalInfo)) {
                             var updateInfo = originalInfo
                             updateInfo.name = inputName
+                            updateInfo.avatarIndex = inputAvatarIndex
                             vm.updateIdentity(info: updateInfo)
                         }
                     }
@@ -52,9 +64,11 @@ struct IdentityDetailView: View {
             }
         }
         .onAppear{
-            if let name = vm.focusedIdentity?.name {
-                inputName = name
+            if let identity = vm.focusedIdentity {
+                inputName = identity.name!
+                inputAvatarIndex = Int(identity.avatarIndex)
             }
+            debugPrint("IdentityDetailView appear")
         }
     }
 }

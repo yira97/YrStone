@@ -23,8 +23,9 @@ struct CreateOrganizationView: View {
                     .foregroundColor(Color.AppText)
                     .padding(.bottom)
                     .padding()
-                RoundedIconTextField(value: $inputOrganizationName, icon: Image(systemName: "person.fill"), label: "Name")
+                RoundedIconTextField(value: $inputOrganizationName, icon: Image(systemName: "person.fill"), label: "Name", height:Design.TextField.MainHeight)
                     .padding(.bottom)
+                    .frame(maxWidth: Design.TextField.MaxWidth)
                 Text("Domains")
                     .font(.title2)
                     .bold()
@@ -33,14 +34,14 @@ struct CreateOrganizationView: View {
                 VStack {
                     VStack {
                         ForEach(Array(inputOrganizationDomains.enumerated()), id: \.offset) { index, element in
-                            RoundedIconTextField(value: $inputOrganizationDomains[index], icon: Image(systemName: "list.bullet.rectangle.fill"), label: "Domain\(index+1)", height: 50)
+                            RoundedIconTextField(value: $inputOrganizationDomains[index], icon: Image(systemName: "list.bullet.rectangle.fill"), label: "Domain\(index+1)", height: Design.TextField.SubHeight)
                         }
                     }
-                    .padding()
                     .background(
                         RoundedRectangle(cornerRadius: 30)
                             .foregroundColor(.AppTextFieldBackground)
                     )
+                    .frame(maxWidth: Design.TextField.MaxWidth)
                     HStack {
                         Spacer()
                         Button("Add Field") {

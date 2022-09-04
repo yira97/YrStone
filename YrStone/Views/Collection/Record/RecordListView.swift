@@ -11,7 +11,6 @@ import CoreData
 struct RecordListView: View {
     @EnvironmentObject var recordCollectionViewModel: RecordCollectionViewModel
     
-    
     var body: some View {
         ZStack {
             Color.AppCanvas
@@ -34,6 +33,7 @@ struct RecordListView: View {
                         recordCollectionViewModel.deleteRecords(ids: ids)
                     }
                 }
+                .listRowBackground(Color.AppCardBackground)
                 .listStyle(.plain)
                 .scrollContentBackground(.hidden)
             }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D153A6C28C1E83B008C6756 /* AvatarBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D153A6B28C1E83B008C6756 /* AvatarBase.swift */; };
+		8D153A6E28C1FEE1008C6756 /* GeometryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D153A6D28C1FEE1008C6756 /* GeometryProxy.swift */; };
 		8D1DC89C28B87ADE005C887F /* OrganizationGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1DC89B28B87ADE005C887F /* OrganizationGroupView.swift */; };
 		8D2DA29D28AF2774004B5491 /* NSSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2DA29C28AF2774004B5491 /* NSSet.swift */; };
 		8D34816828B37C2000E37132 /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D34816728B37C2000E37132 /* CollectionView.swift */; };
@@ -46,6 +48,8 @@
 		8DBDA6F4289FF25700E5B464 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDA6F3289FF25700E5B464 /* PersistenceController.swift */; };
 		8DBDA6FD28A1111000E5B464 /* RecordCollectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDA6FC28A1111000E5B464 /* RecordCollectionStore.swift */; };
 		8DBDA6FF28A1124700E5B464 /* RecordCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBDA6FE28A1124600E5B464 /* RecordCollectionViewModel.swift */; };
+		8DCD01AC28C21B7C008A7BBD /* Design.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCD01AB28C21B7C008A7BBD /* Design.swift */; };
+		8DCD01AE28C23349008A7BBD /* Avatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCD01AD28C23349008A7BBD /* Avatar.swift */; };
 		8DCD361A28B66B520017C448 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCD361928B66B520017C448 /* Image.swift */; };
 		8DCD361C28B6FFE60017C448 /* RecordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCD361B28B6FFE60017C448 /* RecordListView.swift */; };
 		8DCD361E28B734490017C448 /* RecordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DCD361D28B734490017C448 /* RecordDetailView.swift */; };
@@ -53,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D153A6B28C1E83B008C6756 /* AvatarBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarBase.swift; sourceTree = "<group>"; };
+		8D153A6D28C1FEE1008C6756 /* GeometryProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryProxy.swift; sourceTree = "<group>"; };
 		8D1DC89B28B87ADE005C887F /* OrganizationGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationGroupView.swift; sourceTree = "<group>"; };
 		8D2DA29C28AF2774004B5491 /* NSSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSSet.swift; sourceTree = "<group>"; };
 		8D34816728B37C2000E37132 /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
@@ -94,6 +100,8 @@
 		8DBDA6F3289FF25700E5B464 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		8DBDA6FC28A1111000E5B464 /* RecordCollectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCollectionStore.swift; sourceTree = "<group>"; };
 		8DBDA6FE28A1124600E5B464 /* RecordCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordCollectionViewModel.swift; sourceTree = "<group>"; };
+		8DCD01AB28C21B7C008A7BBD /* Design.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Design.swift; sourceTree = "<group>"; };
+		8DCD01AD28C23349008A7BBD /* Avatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Avatar.swift; sourceTree = "<group>"; };
 		8DCD361928B66B520017C448 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		8DCD361B28B6FFE60017C448 /* RecordListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListView.swift; sourceTree = "<group>"; };
 		8DCD361D28B734490017C448 /* RecordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailView.swift; sourceTree = "<group>"; };
@@ -122,6 +130,15 @@
 				8DCD361D28B734490017C448 /* RecordDetailView.swift */,
 			);
 			path = Record;
+			sourceTree = "<group>";
+		};
+		8D153A6A28C1E81B008C6756 /* avatars */ = {
+			isa = PBXGroup;
+			children = (
+				8D153A6B28C1E83B008C6756 /* AvatarBase.swift */,
+				8DCD01AD28C23349008A7BBD /* Avatar.swift */,
+			);
+			path = avatars;
 			sourceTree = "<group>";
 		};
 		8D34816328B37ADB00E37132 /* Collection */ = {
@@ -169,6 +186,7 @@
 				8D73D01628B8B72A00A4DBF7 /* gradients.swift */,
 				8D73D02328B9BCCA00A4DBF7 /* String.swift */,
 				8D870DA928BDC40F00375B53 /* Array.swift */,
+				8D153A6D28C1FEE1008C6756 /* GeometryProxy.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -268,6 +286,8 @@
 		8DBDA6F528A0C15700E5B464 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				8DCD01AB28C21B7C008A7BBD /* Design.swift */,
+				8D153A6A28C1E81B008C6756 /* avatars */,
 				8DB1A77028BFCD2100694A18 /* cards */,
 				8D599B7928BA243700BA0ED4 /* inputs */,
 				8D599B7628B9F02B00BA0ED4 /* badges */,
@@ -371,6 +391,7 @@
 				8D73D02428B9BCCA00A4DBF7 /* String.swift in Sources */,
 				8D34816828B37C2000E37132 /* CollectionView.swift in Sources */,
 				8DBDA6FD28A1111000E5B464 /* RecordCollectionStore.swift in Sources */,
+				8DCD01AE28C23349008A7BBD /* Avatar.swift in Sources */,
 				8D2DA29D28AF2774004B5491 /* NSSet.swift in Sources */,
 				8D73D01F28B8BBF500A4DBF7 /* IdentityDetailView.swift in Sources */,
 				8D73D01128B8B17F00A4DBF7 /* RecordInfo.swift in Sources */,
@@ -386,13 +407,16 @@
 				8D870DAA28BDC40F00375B53 /* Array.swift in Sources */,
 				8DB1A77228C08C5100694A18 /* IdentityGroupView.swift in Sources */,
 				8D34817628B4C10400E37132 /* NoRecordPlaceholder.swift in Sources */,
+				8D153A6C28C1E83B008C6756 /* AvatarBase.swift in Sources */,
 				8D870DC528BDF57F00375B53 /* extensions.swift in Sources */,
 				8D8A9E5128B85F7000E25FF4 /* CreateOrganizationView.swift in Sources */,
 				8D8A9E4828B78B3400E25FF4 /* OrganizationView.swift in Sources */,
 				8D8A9E4A28B78B5900E25FF4 /* IdentityView.swift in Sources */,
 				8DBDA6E2289CE1F800E5B464 /* AppView.swift in Sources */,
 				8DCD362028B73B4C0017C448 /* RoundedIconTextField.swift in Sources */,
+				8DCD01AC28C21B7C008A7BBD /* Design.swift in Sources */,
 				8DCD361A28B66B520017C448 /* Image.swift in Sources */,
+				8D153A6E28C1FEE1008C6756 /* GeometryProxy.swift in Sources */,
 				8D73D01528B8B1E700A4DBF7 /* IdentityInfo.swift in Sources */,
 				8D73D01D28B8BBEA00A4DBF7 /* OrganizationDetailView.swift in Sources */,
 				8D599B7828B9F04D00BA0ED4 /* AutoColoredBadge.swift in Sources */,
@@ -537,6 +561,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Stone;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -551,7 +577,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.5;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lumitou.software.YrStone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -577,6 +603,8 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Stone;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -591,7 +619,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 12.5;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.lumitou.software.YrStone;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;

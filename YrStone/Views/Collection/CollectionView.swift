@@ -12,6 +12,7 @@ struct CollectionView: View {
     @State private var showCreateRecordView = false
     @State private var showSearchBar = false
     
+    
     var body: some View {
         NavigationStack {
             ZStack (alignment: .bottomTrailing) {
@@ -23,7 +24,10 @@ struct CollectionView: View {
                             .foregroundColor(Color.AppText)
                         ScrollView(.horizontal) {
                             HStack(spacing: 20) {
-                                NavigationLink(destination: IdentityView()) {
+                                NavigationLink(
+                                    destination:
+                                        IdentityView()
+                                ) {
                                     CategoryCardView(background: LinearGradient.ForIdentity, text: "Identities", icon: Image.IdentityIcon)
                                 }
                                 NavigationLink(destination: OrganizationView()) {

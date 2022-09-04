@@ -9,8 +9,20 @@ import SwiftUI
 
 struct AppView: View {
     init() {
-        UITabBar.appearance().backgroundColor = UIColor.AppTabBarBackgroundColor
+        // setting transparent navigation bar (globally)
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithTransparentBackground()
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        
+        let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithDefaultBackground()
+        tabBarAppearance.backgroundColor = UIColor.AppTabBarBackgroundColor
+        
+        UITabBar.appearance().standardAppearance = tabBarAppearance
+        // disable auto transparent feature
+        UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         UITabBar.appearance().unselectedItemTintColor = UIColor.white
+        
     }
     
     var body: some View {
@@ -31,16 +43,11 @@ struct AppView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct AppView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             AppView()
                 .environmentObject(RecordCollectionViewModel.SharedForPreview)
-                .previewDisplayName("light")
-            AppView()
-                .environmentObject(RecordCollectionViewModel.SharedForPreview)
-                .preferredColorScheme(.dark)
-                .previewDisplayName("dark")
         }
     }
 }

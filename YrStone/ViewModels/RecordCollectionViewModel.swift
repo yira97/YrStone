@@ -15,6 +15,11 @@ class RecordCollectionViewModel : ObservableObject {
     @Published var focusedOrganization: YrOrganizationEntity?
     @Published var inputSearchText: String = ""
     
+    func clearFocus() {
+        self.focusedIdentity = nil
+        self.focusedOrganization = nil
+    }
+    
     var searchSubscription =  Set<AnyCancellable>()
     
     @Published private var  _recordCollectionStore : RecordCollectionStore

@@ -14,28 +14,24 @@ struct IdentityView: View {
     @State var showDetailPage: Bool = false
     
     init() {
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-    }
-    
-    func resetFocus() {
-        recordCollectionViewModel.focusedIdentity = nil
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
     }
     
     var body: some View {
-        IdentityGroupView(
-            onTap: {
-                showDetailPage = true
-            },
-            shape: RoundedRectangle(cornerRadius: 20)
-        )
+        ZStack {
+            IdentityGroupView(
+                afterTap: {
+                    showDetailPage = true
+                }
+            )
+        }
         .padding(.horizontal)
         // TODO: deleting the padding will cause the navigationBarTitleDisplayMode change when scrolling which is unexpected.
-        .padding(.vertical,1)
+        //.padding(.vertical,1)
         .background(
             LinearGradient.ForIdentity
         )
         .navigationTitle("Identities")
-        .navigationBarTitleDisplayMode(.large)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action:{ showCreatePage = true }) {
@@ -56,10 +52,11 @@ struct IdentityView: View {
             CreateIdentityView()
         }
         .onAppear() {
-            resetFocus()
+            recordCollectionViewModel.clearFocus()
+            debugPrint("IdentityView appear")
         }
         .onDisappear {
-            resetFocus()
+            recordCollectionViewModel.clearFocus()
         }
     }
 }

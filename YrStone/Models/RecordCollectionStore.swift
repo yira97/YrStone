@@ -104,6 +104,7 @@ struct RecordCollectionStore {
     }
     
     mutating func loadIdentities() {
+        debugPrint("loadIdentities begin")
         identities = getIdentities()
     }
     
@@ -118,7 +119,6 @@ struct RecordCollectionStore {
     
     mutating func loadRecords() {
         records = getRecords()
-        dump(records.map({RecordInfo.fromYrRecordEntity(entity: $0)}))
     }
     
     init (context: NSManagedObjectContext) {
@@ -200,6 +200,7 @@ struct RecordCollectionStore {
     mutating func createIdentity (info: IdentityInfo) {
         let identityEntity = YrIdentityEntity(context: _context)
         identityEntity.name = info.name
+        identityEntity.avatarIndex = Int16(info.avatarIndex)
         
         if(save()) {
             loadIdentities()
@@ -243,8 +244,11 @@ struct RecordCollectionStore {
         if (entity.name != info.name) {
             entity.name = info.name
         }
+        if (entity.avatarIndex != info.avatarIndex) {
+            entity.avatarIndex = Int16(info.avatarIndex)
+        }
         if(save()) {
-            loadRecords()
+            loadIdentities()
         }
     }
     

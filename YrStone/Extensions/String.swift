@@ -25,12 +25,13 @@ extension String {
         }
      }
     
+    // TODO: the difference of color is not significant enough
     var hashedRGB: (Double, Double, Double) {
         let hash = self.stableHash
-        let colorNum = hash % (256*256*256)
+        let colorNum = Int(hash) % (256*256*256)
         let red = colorNum >> 16
         let green = (colorNum & 0x00FF00) >> 8
         let blue = (colorNum & 0x0000FF)
-        return (Double(red), Double(green), Double(blue))
+        return (Double(red)/255, Double(green)/255, Double(blue)/255)
     }
 }
