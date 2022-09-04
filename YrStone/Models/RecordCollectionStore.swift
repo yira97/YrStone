@@ -263,7 +263,7 @@ struct RecordCollectionStore {
         
         let domainEntities = organizationEntity.domainsArray().displaySorting()
         let domainInfos = organizationInfo.domains.displaySorting()
-            
+        
         for i in 0..<max(domainEntities.count, domainInfos.count) {
             if (domainInfos.count > i && domainEntities.count > i) {
                 if (domainEntities[i].value != domainInfos[i].value) {
@@ -294,6 +294,7 @@ struct RecordCollectionStore {
             recordEntity.password = recordInfo.password
         }
         
+        // for [YrRecordField]
         let fieldEntities = recordEntity.fieldArray().displaySorting()
         let fieldInfos = recordInfo.extraContents.filter({$0.content.isNotEmpty && $0.desc.isNotEmpty}).displaySorting()
         
@@ -312,6 +313,20 @@ struct RecordCollectionStore {
             } else {
                 _context.delete(fieldEntities[i])
             }
+        }
+        
+        // for YrIdentity
+        if let idInfo = recordInfo.identity {
+            recordEntity.identity = idInfo.managedEntity
+        } else {
+            recordEntity.identity = nil
+        }
+        
+        // for YrOrganization
+        if let orgInfo = recordInfo.organization {
+            recordEntity.organization = orgInfo.managedEntity
+        } else {
+            recordEntity.organization = nil
         }
         
         if (save()) {

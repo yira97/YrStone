@@ -200,6 +200,7 @@ struct RecordDetailView: View {
                         // for relation field with optional, up
                         updateInfo.organization = vm.focusedOrganization != nil ?  OrganizationInfo.fromYrOrganizationEntity(entity: vm.focusedOrganization!) : nil
                         updateInfo.identity = vm.focusedIdentity != nil ? IdentityInfo.fromYrIdentityEntity(entity: vm.focusedIdentity!) : nil
+                        
                         vm.updateRecord(info: updateInfo)
                     }
                     editingMode = !editingMode
